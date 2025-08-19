@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "nodemon server/index.js",
     "start": "node server/index.js",
-  "client-install": "cd gui && npm install",
-  "client-build": "cd gui && npm run build"
+    "build": "cd gui && npm install && npm run build && cd .."
   },
   "type": "module",
   "keywords": [],

@@ -19,6 +19,13 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.use(express.static(path.join(__dirname, '../gui/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../gui/build', 'index.html'));
+});
+
+
 app.get('/api/songs/:songId', (req, res) => {
   const songId = req.params.songId;
   const code = req.query.code;
