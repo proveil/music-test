@@ -55,7 +55,7 @@ app.get('/api/songs/:songId', (req, res) => {
     }
   });
 });
-
+const BACKEND_URL = "https://music-test-ynd6.onrender.com";
 app.get('/api/songs', (req, res) => {
 
   const songsDir = path.join(__dirname, 'songs');
@@ -68,7 +68,7 @@ app.get('/api/songs', (req, res) => {
       .filter(file => file.endsWith('.mp3'))
       .map(file => ({
         name: file,
-        url: `http://localhost:3000/api/songs/${path.parse(file).name}`
+        url: `${BACKEND_URL}/api/songs/${path.parse(file).name}`
       }));
 
     res.json(songs);
