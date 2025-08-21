@@ -125,6 +125,31 @@ function Home() {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  if (loading) {
+  return (
+    <div className="text-white min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 p-4">
+      <h2 className="text-3xl font-bold">Loading songs...</h2>
+    </div>
+  );
+}
+
+if (error) {
+  return (
+    <div className="text-white min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 p-4">
+      <h2 className="text-3xl font-bold text-red-500">{error}</h2>
+    </div>
+  );
+}
+
+if (!songList.length) {
+  return (
+    <div className="text-white min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 p-4">
+      <h2 className="text-3xl font-bold">No songs available</h2>
+    </div>
+  );
+}
+
+
   return (
     <div className="text-white min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 p-4">
       <h2 className="text-3xl font-bold mb-4">Song Player</h2>
