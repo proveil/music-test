@@ -11,7 +11,7 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const corsOptions = {
-  origin: '*'};
+  origin: 'https://visionary-crepe-b039b8.netlify.app'};
 app.use(cors(corsOptions));
 app.use(express.json());
 

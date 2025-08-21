@@ -21,6 +21,7 @@ function Home() {
   // Fetch songs on mount
   useEffect(() => {
     getSong();
+    console.log(songList);
   }, [getSong]);
 
   // Load song when currentIndex changes
