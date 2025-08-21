@@ -79,11 +79,11 @@ app.get('/api/songs', (req, res) => {
   });
 });
 
-app.use(express.static(path.join(__dirname, '../gui/dist')));
+// app.use(express.static(path.join(__dirname, '../gui/dist')));
 
-app.get(/(.*)/, (req, res) => {
-  res.sendFile(path.join(__dirname, '../gui/dist', 'index.html'));
-});
+// app.get(/(.*)/, (req, res) => {
+//   res.sendFile(path.join(__dirname, '../gui/dist', 'index.html'));
+// });
 
 
 app.listen(PORT, () => {
