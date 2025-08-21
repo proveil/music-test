@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-const API_URL = "/api";
+const API_URL = "https://music-test-ynd6.onrender.com";
 
 export const useSongsStore = create((set) => ({
     song: [],
@@ -10,7 +10,7 @@ export const useSongsStore = create((set) => ({
     getSong : async () =>{
         set({loading: true,error: null});
         try {
-            const response = await fetch(`${API_URL}/songs?code=4351`);
+            const response = await fetch(`${API_URL}/api/songs?code=4351`);
             const data = await response.json();
             set({loading: false,error: null,song: data});
         } catch (error) {

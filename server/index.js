@@ -18,8 +18,6 @@ app.use(express.json());
 
 app.get('/api/songs/:songId', (req, res) => {
   const songId = req.params.songId;
-  const code = req.query.code;
-  if(code !== "4351") return res.status(403).send('Forbidden');
   const filePath = path.join(__dirname, 'songs', `${songId}.mp3`);
 
   fs.stat(filePath, (err, stats) => {
@@ -59,8 +57,6 @@ app.get('/api/songs/:songId', (req, res) => {
 });
 
 app.get('/api/songs', (req, res) => {
-  const code = req.query.code;
-  if (code !== "4351") return res.status(403).send('Forbidden');
 
   const songsDir = path.join(__dirname, 'songs');
 
@@ -72,7 +68,7 @@ app.get('/api/songs', (req, res) => {
       .filter(file => file.endsWith('.mp3'))
       .map(file => ({
         name: file,
-        url: `http://localhost:3000/api/songs/${path.parse(file).name}?code=4351`
+        url: `http://localhost:3000/api/songs/${path.parse(file).name}`
       }));
 
     res.json(songs);
