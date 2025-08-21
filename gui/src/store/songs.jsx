@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-
+const API_URL = import.meta.env.VITE_API_URL || '/api';
 export const useSongsStore = create((set) => ({
     song: [],
     error: null,
@@ -9,7 +9,7 @@ export const useSongsStore = create((set) => ({
     getSong : async () =>{
         set({loading: true,error: null});
         try {
-            const response = await fetch(`http://localhost:3000/api/songs?code=4351`);
+            const response = await fetch(`${API_URL}/songs?code=4351`);
             const data = await response.json();
             set({loading: false,error: null,song: data});
         } catch (error) {

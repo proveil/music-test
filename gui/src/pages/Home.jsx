@@ -134,10 +134,6 @@ function Home() {
 
       {currentSongBlob && (
         <div className="mt-6 p-5 bg-gray-900/60 shadow-md rounded-lg flex flex-col items-center w-full max-w-md">
-          <h2 className="my-2 text-2xl font-bold bg-gradient-to-r from-green-500 to-emerald-400 bg-clip-text text-transparent">
-            {title}
-          </h2>
-          <p className="text-gray-500 mb-2">{artist}</p>
 
           {cover ? (
             <div className="w-48 h-48 my-4 overflow-hidden rounded-md">
@@ -148,6 +144,10 @@ function Home() {
               No Cover
             </div>
           )}
+          <h2 className="my-2 text-xl text-center font-bold bg-gradient-to-r from-green-500 to-emerald-400 bg-clip-text text-transparent">
+            {title}
+          </h2>
+          <p className="text-gray-500 mb-2">{artist}</p>
 
           <audio
             ref={audioRef}

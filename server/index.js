@@ -15,16 +15,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.use(express.static(path.join(__dirname, '../gui/build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../gui/build', 'index.html'));
-});
-
 
 app.get('/api/songs/:songId', (req, res) => {
   const songId = req.params.songId;
@@ -88,6 +78,14 @@ app.get('/api/songs', (req, res) => {
     res.json(songs);
   });
 });
+
+app.use(express.static(path.join(__dirname, '../gui/dist')));
+
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../gui/dist', 'index.html'));
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
